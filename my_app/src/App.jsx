@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Logger from './library/Logger'
 
 function App() {
 
@@ -12,6 +13,8 @@ function App() {
   if (process.env.APP_DEBUG) {
     console.log("Debug enabled")
   }
+
+  Logger.debug('App started (this message ONLY appears when debug is enabled)')
 
   const [count, setCount] = useState(0)
 
