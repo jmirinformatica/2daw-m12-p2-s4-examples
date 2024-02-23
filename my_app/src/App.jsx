@@ -4,6 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+
+  if (process.env.APP_ENV) {
+    console.log("Environment: " + process.env.APP_ENV)
+  }
+  
+  if (process.env.APP_DEBUG) {
+    console.log("Debug enabled")
+  }
+
   const [count, setCount] = useState(0)
 
   return (
