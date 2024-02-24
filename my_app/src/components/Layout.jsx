@@ -1,4 +1,4 @@
-import { Header } from './Header';
+import { Header } from './Header'
 import { Container } from 'react-bootstrap'
 
 const Layout = ({ children }) => {
@@ -12,4 +12,4 @@ const Layout = ({ children }) => {
 	)
 }
 
-export default Layout;
+export default Layout

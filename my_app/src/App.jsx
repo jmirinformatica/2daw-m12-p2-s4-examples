@@ -5,6 +5,7 @@ import NotFound from './pages/404'
 import Home from './pages/Home'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
+import { UserContextProvider } from './contexts/UserContext'
 
 function App() {
 
@@ -17,14 +18,16 @@ function App() {
   }
 
   Logger.debug('App root component')
-
+  
   return (
-    <Routes>
-      <Route path='*' element={<NotFound/>} />
-      <Route path="/" element={<Home/>} />
-      <Route path="/login" element={<Login/>} />
-      <Route path="/register" element={<Register/>} />
-    </Routes>
+    <UserContextProvider>
+      <Routes>
+        <Route path='*' element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </UserContextProvider>
   )
 }
 

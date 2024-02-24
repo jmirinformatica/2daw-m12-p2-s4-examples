@@ -1,5 +1,5 @@
-import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 export default function NotFound() {
 	return (
@@ -10,5 +10,5 @@ export default function NotFound() {
 				<Link to="/">Back to home</Link>
 			</Container>
 		</section>
-	);
+	)
 }

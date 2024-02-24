@@ -3,15 +3,18 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Layout from '../../components/Layout'
 import Logger from '../../library/Logger'
+import useUserContext from '../../hooks/useUserContext'
 
 export default function Login() {
 	
 	const [ data, setData ] = useState("")
 	const navigate = useNavigate()
+	const { setUser } = useUserContext()
 	
 	function onSubmit (e) {
 		Logger.debug("Login form submitted")
 		Logger.debug(data)
+		setUser(data)
 		navigate("/")
 		e.preventDefault()
 	}

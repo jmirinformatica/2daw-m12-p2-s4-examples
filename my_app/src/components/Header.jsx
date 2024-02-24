@@ -1,16 +1,19 @@
 import { Container, Nav, Navbar, Button } from 'react-bootstrap'
 import Logger from '../library/Logger'
 import { useLocation, useNavigate } from 'react-router-dom'
+import useUserContext from '../hooks/useUserContext'
 
-export function Header({username}) {
+export function Header() {
 
 	Logger.debug("Header component")
 	const location = useLocation()
 	const navigate = useNavigate()
 
+	const { user, setUser } = useUserContext()
 
 	const handleLogout = () => {
 		Logger.debug("User logout")
+		setUser(null)
 		navigate("/")
 	}
 
@@ -23,9 +26,9 @@ export function Header({username}) {
 					<Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">						
 						<Nav activeKey={location.pathname}>
 							<Nav.Link href="/" eventKey={"/"}>Home</Nav.Link>
-							{username ? (
+							{user ? (
 								<>
-									<Nav.Link>{username}</Nav.Link>
+									<Nav.Link>{user.email}</Nav.Link>
 									<Button variant="secondary" onClick={handleLogout}>Desconnectar</Button>
 								</>
 							) : (
