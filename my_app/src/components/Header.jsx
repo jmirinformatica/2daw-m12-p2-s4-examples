@@ -16,7 +16,8 @@ export function Header({user}) {
 					<Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">						
 						<Nav activeKey={location.pathname}>
 							<Nav.Link href="/" eventKey={"/"}>Home</Nav.Link>
-							<Nav.Link href="/404" eventKey={"/404"}>404</Nav.Link>
+							<Nav.Link href="/login" eventKey={"/login"}>Login</Nav.Link>
+							<Nav.Link href="/register" eventKey={"/register"}>Register</Nav.Link>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>

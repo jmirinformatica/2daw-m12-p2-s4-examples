@@ -3,6 +3,8 @@ import Logger from './library/Logger'
 import { Route, Routes } from 'react-router-dom'
 import NotFound from './pages/404'
 import Home from './pages/Home'
+import Login from './pages/Auth/Login'
+import Register from './pages/Auth/Register'
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
     <Routes>
       <Route path='*' element={<NotFound/>} />
       <Route path="/" element={<Home/>} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/register" element={<Register/>} />
     </Routes>
   )
 }
