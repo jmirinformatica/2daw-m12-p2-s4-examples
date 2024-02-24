@@ -1,8 +1,8 @@
 import './App.scss'
 import Logger from './library/Logger'
 import { Route, Routes } from 'react-router-dom'
-import { NotFound } from './pages/404'
-import { Home } from './pages/Home'
+import NotFound from './pages/404'
+import Home from './pages/Home'
 
 function App() {
 

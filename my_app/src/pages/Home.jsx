@@ -5,7 +5,7 @@ import { Button, Container } from 'react-bootstrap'
 import { useState } from 'react'
 import Layout from '../components/Layout'
 
-export function Home() {
+export default function Home() {
 	
 	const [count, setCount] = useState(0)
 
