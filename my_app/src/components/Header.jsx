@@ -1,15 +1,18 @@
-import { Container, Nav, Navbar, Button } from 'react-bootstrap';
-import Logger from '../library/Logger';
-import { useLocation } from 'react-router-dom';
+import { Container, Nav, Navbar, Button } from 'react-bootstrap'
+import Logger from '../library/Logger'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export function Header({username}) {
-	
+
 	Logger.debug("Header component")
 	const location = useLocation()
-	
+	const navigate = useNavigate()
+
+
 	const handleLogout = () => {
 		Logger.debug("User logout")
-	};
+		navigate("/")
+	}
 
 	return (
 		<header>
@@ -36,5 +39,5 @@ export function Header({username}) {
 				</Container>
 			</Navbar>
 		</header>
-	);
+	)
 }

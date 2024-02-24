@@ -1,16 +1,19 @@
 import { Form, Button } from 'react-bootstrap'
-import { useState } from 'react';
-import Layout from '../../components/Layout';
-import Logger from '../../library/Logger';
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Layout from '../../components/Layout'
+import Logger from '../../library/Logger'
 
 export default function Register() {
 
-	const [data, setData] = useState("");
+	const [data, setData] = useState("")
+	const navigate = useNavigate()
 
 	function onSubmit(e) {
-		Logger.debug("Register form submitted");
-		Logger.debug(data);
-		e.preventDefault();
+		Logger.debug("Register form submitted")
+		Logger.debug(data)
+		navigate("/login")
+		e.preventDefault()
 	}
 
 	function onInput(e) {
@@ -56,5 +59,5 @@ export default function Register() {
 				</Form> 
 			</section>
 		</Layout>
-	);
+	)
 }
