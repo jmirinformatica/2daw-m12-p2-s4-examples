@@ -3,15 +3,14 @@ import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import { Button, Container } from 'react-bootstrap'
 import { useState } from 'react'
-import { Header } from '../components/Header'
+import Layout from '../components/Layout'
 
 export function Home() {
 	
 	const [count, setCount] = useState(0)
 
 	return (
-		<>
-			<Header />
+		<Layout>
 			<section className="home">
 				<Container className="text-center">
 					<div>
@@ -36,6 +35,6 @@ export function Home() {
 					</p>
 				</Container>
 			</section>
-		</>
+		</Layout>
 	);
 }
