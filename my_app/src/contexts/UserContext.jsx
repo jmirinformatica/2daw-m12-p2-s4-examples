@@ -1,11 +1,15 @@
 import { createContext, useState } from 'react'
+import SessionService from '../services/SessionStorage/SessionService'
 
 const UserContext = createContext()
 
 export const UserContextProvider = ({ children }) => {
-
-  const [authToken, setAuthToken] = useState(null)
-  const [user, setUser] = useState(null)
+  // Session
+  const sessionService = new SessionService()
+  const data = sessionService.getSessionData()
+  // State
+  const [authToken, setAuthToken] = useState(data.authToken || null)
+  const [user, setUser] = useState(data.user || null)
   
   return (
     <UserContext.Provider value={{ authToken, setAuthToken, user, setUser }}>

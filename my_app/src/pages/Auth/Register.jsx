@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import Layout from '../../components/Layout'
 import Logger from '../../library/Logger'
 
+import AuthService from '../../services/LocalStorage/AuthService'
+
 export default function Register() {
 
 	const [data, setData] = useState("")
@@ -12,7 +14,16 @@ export default function Register() {
 	function onSubmit(e) {
 		Logger.debug("Register form submitted")
 		Logger.debug(data)
-		navigate("/login")
+		// Auth 
+		const authService = new AuthService()
+		const success = authService.register(data.username, data.email, data.password)
+		if (success) {
+			// Redirect
+			navigate("/login")
+			alert("Register OK!")
+		} else {
+			alert("Register error... :_(")
+		}
 		e.preventDefault()
 	}
 

@@ -5,17 +5,35 @@ import Layout from '../../components/Layout'
 import Logger from '../../library/Logger'
 import useUserContext from '../../hooks/useUserContext'
 
+import AuthService from '../../services/LocalStorage/AuthService'
+import SessionService from '../../services/SessionStorage/SessionService'
+
 export default function Login() {
 	
 	const [ data, setData ] = useState("")
 	const navigate = useNavigate()
-	const { setUser } = useUserContext()
+	const { setAuthToken, setUser } = useUserContext()
 	
 	function onSubmit (e) {
 		Logger.debug("Login form submitted")
 		Logger.debug(data)
-		setUser(data)
-		navigate("/")
+		// Auth 
+		const authService = new AuthService()
+		const authToken = authService.login(data.email, data.password)
+		if (authToken) {
+			const user = authService.user(authToken)
+			// Session
+			const sessionService = new SessionService()
+			sessionService.createSession({authToken, user})
+			// State
+			setAuthToken(authToken)
+			setUser(user)
+			// Redirect
+			navigate("/")	
+			alert("Login OK!")
+		} else {
+			alert("Login error... :-(")
+		}
 		e.preventDefault()
 	}
 
