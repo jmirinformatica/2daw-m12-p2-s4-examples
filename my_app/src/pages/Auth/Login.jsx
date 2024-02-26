@@ -21,7 +21,7 @@ export default function Login() {
 		const authService = new AuthService()
 		const authToken = authService.login(data.email, data.password)
 		if (authToken) {
-			const user = authService.user(authToken)
+			const user = { "email": data.email }
 			// Session
 			const sessionService = new SessionService()
 			sessionService.createSession({authToken, user})
